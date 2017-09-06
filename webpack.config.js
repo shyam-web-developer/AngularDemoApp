@@ -1,7 +1,7 @@
-/*const path = require('path');
+const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/app/index.js',
     output: {
         path: path.resolve(__dirname, './public'),
         filename: 'bundle.js'
@@ -27,41 +27,4 @@ module.exports = {
       open: true // open default browser while launching
     },
     devtool: 'eval-source-map' // enable dev tool for better debugging experience
-};*/
-
-var webpack = require('webpack');
-var path = require('path');
-
-var APP_DIR = path.resolve(__dirname, 'src');
-
-var config = {
-  entry: './src/app/index.js',
-  output: {
-    path: path.resolve(__dirname, './public'),
-    filename: 'bundle.js'
-  },
-   devServer:{      
-    contentBase: path.resolve(__dirname, './public'), 
-    historyApiFallback: true,
-    inline: true,
-    open: true // open default browser while launching        
-  },
-  module : {
-    loaders : [
-      {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        exclude: /node_modules/,
-        loader : 'babel-loader'
-      },
-      {
-        test : /\.css$/,
-        include : APP_DIR + '/css',
-        exclude: /node_modules/,
-        loader : 'style!css'
-      }
-    ]
-  }
 };
-
-module.exports = config;
